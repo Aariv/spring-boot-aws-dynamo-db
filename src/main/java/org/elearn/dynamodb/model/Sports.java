@@ -21,29 +21,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamoDBTable(tableName = "StateCityDistance")
-public class StateCityDistance {
+@DynamoDBTable(tableName = "Sports")
+public class Sports {
 
 	@DynamoDBHashKey(attributeName = "Id")
 	private String id;
 
-	@DynamoDBAttribute(attributeName = "City")
-	private String city;
+	@DynamoDBAttribute(attributeName = "Name")
+	private String name;
 
-	@DynamoDBAttribute(attributeName = "State")
-	private String state;
-	
-	@DynamoDBAttribute(attributeName = "Latitude")
-	private Double latitude;
-	
-	@DynamoDBAttribute(attributeName = "Longitude")
-	private Double longitude;
-
-	@DynamoDBAttribute(attributeName = "Distance")
-	private Double distance;
-
-	@DynamoDBTypeConverted(converter = PlayerTypeConvertor.class)
-	@DynamoDBAttribute(attributeName = "Player")
-	private Player player;
-
+//	@DynamoDBTypeConverted(converter = PlayerTypeConvertor.class)
+//	@DynamoDBAttribute(attributeName = "Player")
+//	private Player player;
 }

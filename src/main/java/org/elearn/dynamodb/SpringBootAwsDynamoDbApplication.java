@@ -40,7 +40,7 @@ public class SpringBootAwsDynamoDbApplication implements CommandLineRunner {
 		 */
 		Reflections reflections = new Reflections("org.elearn.dynamodb.model");
 		Set<Class<? extends Object>> allClasses = reflections.getTypesAnnotatedWith(DynamoDBTable.class);
-		for (Class cls : allClasses) {
+		for (@SuppressWarnings("rawtypes") Class cls : allClasses) {
 			CreateTableRequest tableRequest = dynamoDBMapper.generateCreateTableRequest(cls);
 			tableRequest.setProvisionedThroughput(new ProvisionedThroughput(1L, 1L));
 			boolean created = TableUtils.createTableIfNotExists(amazonDynamoDB, tableRequest);

@@ -8,7 +8,6 @@ import java.util.List;
 import org.elearn.dynamodb.model.StateCityDistance;
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
-import java.lang.String;
 
 /**
  * @author kloudone
@@ -19,5 +18,8 @@ public interface StateCityDistanceRepository extends CrudRepository<StateCityDis
 
 	List<StateCityDistance> findByStateAndCityAndDistance(String state, String city, Double distance);
 	
+	List<StateCityDistance> findByStateAndCity(String state, String city);
+	
 	List<StateCityDistance> findByState(String state);
+	
 }
